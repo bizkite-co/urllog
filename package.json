@@ -1,12 +1,17 @@
 {
-  "name": "urllog",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@textnav/urllog",
+  "version": "0.1.0",
+  "description": "An NPX package for inspecting web pages using Playwright.",
+  "license": "Apache-2.0",
   "type": "module",
+  "bin": {
+    "urllog": "dist/index.js"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "typescript": "~5.7.2",

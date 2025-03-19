@@ -1,16 +1,31 @@
-# Task: Move and Adapt Code
+# Task: Configure TypeScript (tsconfig.json)
 
-This task involves moving the existing `inspect.ts` file to the `src` directory, renaming it to `index.ts`, and adapting the code to the new project environment.
+This task involves ensuring the `tsconfig.json` file is configured correctly for a Node.js environment, with appropriate module resolution and output settings.
 
 ## Steps
 
-1.  Move `inspect.ts` to `src/index.ts`.
-2.  Update the shebang line at the top of `src/index.ts` to: `#!/usr/bin/env node`
-3.  Adjust file paths within `src/index.ts` (for output) to be relative to the project root. Use a default output directory named `urllog-output` in the project root.
+1.  Open `tsconfig.json`.
+2.  Verify and, if necessary, adjust the `compilerOptions` to match the following:
+
+    ```json
+    {
+      "compilerOptions": {
+        "target": "ES2020", // Or a suitable Node.js version (ES2018, ES2019, etc.)
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "outDir": "dist", // Output directory
+        "rootDir": "src",  // Root directory of source files
+        "declaration": true // Generate declaration files
+      },
+      "include": ["src/**/*"],
+      "exclude": ["node_modules"]
+    }
+    ```
 
 ## Expected Outcome
 
-*   The `inspect.ts` file should no longer exist in the project root.
-*   A new file `src/index.ts` should exist, containing the code from `inspect.ts`.
-*   The shebang line in `src/index.ts` should be updated.
-*   File paths within `src/index.ts` should be adjusted to use the `urllog-output` directory.
+The `tsconfig.json` file should be configured with compiler options suitable for a Node.js environment, targeting CommonJS modules and generating declaration files.
