@@ -1,34 +1,22 @@
-# Task: Initialize Project with Vite
+# Task: Install Dependencies
 
-This task involves setting up the basic project structure using Vite with the `vanilla-ts` template.
+This task involves installing the necessary NPM packages for the project.
 
 ## Steps
 
 1.  Run the following command in the terminal:
 
     ```bash
-    npm create vite@latest . -- --template vanilla-ts
+    npm install @playwright/test rimraf typescript @types/node
     ```
 
-    This command will:
+    This command will install the following packages:
 
-    *   Use the latest version of the `create-vite` package.
-    *   Initialize the project in the current directory (`.`).
-    *   Use the `vanilla-ts` template for a basic TypeScript setup.
+    *   `@playwright/test`: For browser automation.
+    *   `rimraf`: For cross-platform directory removal.
+    *   `typescript`: For TypeScript compilation.
+    *   `@types/node`: For Node.js type definitions.
 
 ## Expected Outcome
 
-After running the command, the following files and directories should be created:
-
-*   `package.json`
-*   `tsconfig.json`
-*   `vite.config.ts`
-*   `index.html`
-*   `src/`
-    *   `main.ts`
-    *   `style.css`
-    *   `typescript.svg`
-*   `public/`
-    *    `vite.svg`
-
-The command may also prompt for a project name. If so, enter "." to use the current directory name.
+After running the command, the `package.json` file should be updated to include the installed packages in the `dependencies` or `devDependencies` section. The `node_modules` directory should also be populated with the installed packages.
