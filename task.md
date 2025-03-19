@@ -1,31 +1,14 @@
-# Task: Configure TypeScript (tsconfig.json)
+# Task: Test Locally
 
-This task involves ensuring the `tsconfig.json` file is configured correctly for a Node.js environment, with appropriate module resolution and output settings.
+This task involves testing the package locally using `npm link` to make it available as an NPX command.
 
 ## Steps
 
-1.  Open `tsconfig.json`.
-2.  Verify and, if necessary, adjust the `compilerOptions` to match the following:
-
-    ```json
-    {
-      "compilerOptions": {
-        "target": "ES2020", // Or a suitable Node.js version (ES2018, ES2019, etc.)
-        "module": "CommonJS",
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "strict": true,
-        "skipLibCheck": true,
-        "outDir": "dist", // Output directory
-        "rootDir": "src",  // Root directory of source files
-        "declaration": true // Generate declaration files
-      },
-      "include": ["src/**/*"],
-      "exclude": ["node_modules"]
-    }
-    ```
+1.  Run `npm link` in the project directory (`/home/mstouffer/repos/urllog`). This creates a symbolic link in the global `node_modules` directory that points to the local project.
+2.  Open a *new* terminal (outside the project directory).
+3.  Run `npx @textnav/urllog`. This will execute the linked package.
 
 ## Expected Outcome
 
-The `tsconfig.json` file should be configured with compiler options suitable for a Node.js environment, targeting CommonJS modules and generating declaration files.
+*   `npm link` should complete successfully, creating a symbolic link.
+*   `npx @textnav/urllog` should execute the package. The command may fail initially due to the hardcoded URL, but this step confirms that the package is correctly linked and executable. We will address the URL configuration in a later task.
