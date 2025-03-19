@@ -6,7 +6,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'), // Entry point
       name: 'urllog', // Global variable name (not used in CJS)
-      formats: ['cjs'], // Output format: CommonJS
+      formats: ['es'], // Output format: CommonJS
       fileName: (format) => `index.js`, // Output file name
     },
     rollupOptions: {

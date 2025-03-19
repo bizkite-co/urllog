@@ -1,14 +1,13 @@
-# Task: Test Locally
+### 1. Fix the Build Configuration
 
-This task involves testing the package locally using `npm link` to make it available as an NPX command.
+The root cause of the `ReferenceError: require is not defined` error is the Vite configuration, which is set to output CommonJS format (`cjs`). This conflicts with the project's `"type": "module"` setting in `package.json`.
 
-## Steps
+**Action:** Modify `vite.config.ts` to output ES modules.
 
-1.  Run `npm link` in the project directory (`/home/mstouffer/repos/urllog`). This creates a symbolic link in the global `node_modules` directory that points to the local project.
-2.  Open a *new* terminal (outside the project directory).
-3.  Run `npx @textnav/urllog`. This will execute the linked package.
+**File:** `vite.config.ts`
 
-## Expected Outcome
+**Change:**
 
-*   `npm link` should complete successfully, creating a symbolic link.
-*   `npx @textnav/urllog` should execute the package. The command may fail initially due to the hardcoded URL, but this step confirms that the package is correctly linked and executable. We will address the URL configuration in a later task.
+```diff
+-      formats: ['cjs'], // Output format: CommonJS
++      formats: ['es'], // Output format: ES Modules
