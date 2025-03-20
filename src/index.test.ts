@@ -1,14 +1,3 @@
-### 2. Add Basic Tests
-
-Playwright Test is already included as a dependency, so we can use it directly. We'll create a new test file and add basic tests to validate the core functionality.
-
-**Action:** Create `src/index.test.ts` and add basic tests.
-
-**File:** `src/index.test.ts`
-
-**Content:**
-
-```typescript
 import { test, expect } from '@playwright/test';
 import { inspect } from './index'; // Assuming inspect is exported
 import fs from 'fs';
@@ -35,13 +24,3 @@ test.describe('urllog', () => {
     expect(fs.existsSync(path.join(inspectDir, 'interaction_result.txt'))).toBe(true);
   });
 });
-```
-
-**Note:** We need to export the `inspect` function from `src/index.ts` for the test to work.
-
-**File:** `src/index.ts`
-
-**Change:**
-```diff
-- async function inspect() {
-+ export async function inspect() {

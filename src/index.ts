@@ -39,7 +39,7 @@ async function executeJavaScript(page: Page, script: string, fileName: string) {
   }
 }
 
-async function inspect() {
+export async function inspect() {
   const inspectDir = 'urllog-output';
 
   // Empty the directory
