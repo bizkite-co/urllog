@@ -1,0 +1,2 @@
+❯ npx @textnav/urllog http://localhost:4321
+sh: 1: urllog: Permission denied

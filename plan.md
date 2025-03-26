@@ -57,13 +57,24 @@ test.describe('urllog', () => {
 **Note:** We need to export the `inspect` function from `src/index.ts` for the test to work.
 
 **File:** `src/index.ts`
+
 **Change:**
 ```diff
 - async function inspect() {
 + export async function inspect() {
 ```
 
-### 3. Update README
+### 3. Run Tests and Address Failures
+
+**Action:** Run the tests using `npm test` and address any reported failures. This may involve debugging the code and making necessary changes to fix the issues.
+
+**Command:**
+
+```bash
+npm test
+```
+
+### 4. Update README
 
 Add instructions on how to run the tests.
 
@@ -96,7 +107,7 @@ To run the tests:
     ```
 ```
 
-### 4. Add test script to package.json
+### 5. Add test script to package.json
 
 **Action:** Add a "test" script to `package.json`.
 
@@ -114,7 +125,7 @@ To run the tests:
   },
 ```
 
-### 5. Update shebang to use node --import
+### 6. Update shebang to use node --import
 
 **Action:** Update shebang in `src/index.ts` to use `node --import` to support top-level await.
 
@@ -127,7 +138,7 @@ To run the tests:
 + #!/usr/bin/env node --import=tsx
 ```
 
-### 6. Additional Step: Install tsx
+### 7. Additional Step: Install tsx
 
 **Action:** Install the `tsx` package as a dev dependency.
 
