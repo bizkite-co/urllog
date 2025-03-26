@@ -22,7 +22,7 @@ import fs from 'fs';
 import path from 'path';
 import { rimrafSync } from 'rimraf';
 import arg from 'arg';
-import { fileURLToPath } from 'url'; // Import fileURLToPath
+import { fileURLToPath } from 'url'; // Keep for potential future use if needed elsewhere
 
 console.log('[INDEX LOG] Script start.'); // Log at the very beginning
 
@@ -206,13 +206,6 @@ export async function inspect(url: string = '', overrideUrl?: string) {
   process.exit(0); // Ensure the process exits
 }
 
-// ES Module equivalent check for running as main script
-const currentFilePath = fileURLToPath(import.meta.url);
-const scriptPathArg = process.argv[1];
-
-if (scriptPathArg && path.resolve(scriptPathArg) === currentFilePath) {
-    console.log('[INDEX LOG] Script is main module, calling parseArgs().');
-    parseArgs();
-} else {
-    console.log(`[INDEX LOG] Script is not main module (import.meta.url: ${import.meta.url}, process.argv[1]: ${scriptPathArg})`);
-}
+// Call parseArgs directly, as this script is intended to be executed via the bin/cli.js wrapper
+console.log('[INDEX LOG] Directly calling parseArgs().');
+parseArgs();
